@@ -1,0 +1,20 @@
+# Docker
+docker-compose.override.yml
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# logs, temp
+*.log
+*.tmp
+*.swp
+
+*.class
+*.exe
+*.dll
+
+#database
+*.sqlite
+*.db

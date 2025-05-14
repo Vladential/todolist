@@ -1,0 +1,232 @@
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0%;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 52;
+}
+
+.overlay.active-popup {
+    opacity: 100%;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.main-section {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: calc(100vh - 220px);
+}
+
+.add-section {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    z-index: 49;
+}
+
+.add-section form {
+    width: 100%;
+    border: 25px solid white;
+    background: white;
+    outline: none;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.btn.add {
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 1em;
+    color: white;
+    background: purple;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn.add:hover {
+    background: rgb(95, 0, 95);
+}
+
+.bi.bi-plus-circle {
+    vertical-align: middle;
+    width: 20px;
+}
+
+.input-text {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0 35px 0 5px;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100%;
+}
+
+.todo-item {
+    width: 800px;
+    border: 20px solid white;
+    background: white;
+    outline: none;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    bottom: 20px;
+}
+
+.todo-item input {
+    margin: 0;
+    align-self: center;
+}
+
+.todo-item h2 {
+    /*position: relative;*/
+    flex-basis: 100%;
+    margin: 0;
+    flex: 1;
+    font-size: 1.15em;
+    word-break: break-word;
+}
+
+.todo-item small {
+    flex-basis: 100%;
+    margin-left: 25px;
+    font-size: 0.8em;
+}
+
+#errorMes {
+    display: block;
+    background: #f2dede;
+    width: 95%;
+    margin: 0px auto;
+    color: rgb(133, 0, 0);
+    padding: 10px;
+    height: 35px;
+}
+
+.show-todo-section {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-bottom: 150px;
+    box-sizing: border-box;
+}
+
+.bi.bi-trash {
+    width: 20px;
+    height: auto;
+    position: relative;
+    top: 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.bi.bi-pencil-square {
+    width: 20px;
+    height: auto;
+    position: relative;
+    top: 15px;
+    cursor: pointer;
+}
+
+.checked {
+    color: #999 !important;
+    text-decoration: line-through;
+}
+
+.empty {
+    font-size: 16px;
+    text-align: center;
+    color: #cccc;
+}
+
+.edit-inputbox {
+    position: fixed;
+    width: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    border: 20px solid white;
+    background: white;
+    outline: none;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0%;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform .3s, opacity .3s, visibility .3s;
+    z-index: 150;
+}
+
+.edit-inputbox.active-popup {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 100%;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.edit-text {
+    width: 100%;
+    height: 40px;
+    border-bottom: 2px solid black;
+    border-radius: 5px;
+}
+
+.btn-save,
+.btn-cancel {
+    width: 100px;
+    height: 40px;
+    color: white;
+    background: purple;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-save:hover,
+.btn-cancel:hover {
+    background: rgb(95, 0, 95);
+}

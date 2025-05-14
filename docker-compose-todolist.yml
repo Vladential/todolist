@@ -1,0 +1,32 @@
+services:
+  php:
+    container_name: todolist-php
+    build: ./php
+    volumes:
+      - '/srv/todolist_project:/var/www/todolist'
+    environment:
+      - TZ=Europe/Moscow
+
+  nginx:
+    container_name: todolist-nginx
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - '/srv/todolist_project:/var/www/todolist'
+      - './nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf'
+    environment:
+      - TZ=Europe/Moscow
+
+  postgresql:
+    container_name: todolist-pgsql
+    build: ./postgresql/docker-entrypoint-initdb.d/
+    volumes:
+      - './postgres:/var/lib/postgresql'
+    environment:
+      - 'POSTGRES_PASSWORD=uta2YBy9'
+      - TZ=Europe/Moscow
+      - PGTZ=Europe/Moscow
+networks:
+  todolist-network:
+    driver: bridge
