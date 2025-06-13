@@ -14,7 +14,7 @@
 
 ### 1. Клонирование репозитория  
 ```bash
-git clone https://github.com/Vladential/todolist.git /srv/todolist_project/
+git clone https://github.com/fekojo/todolist.git /srv/todolist_project/
 ```
 
 ### 2. Запуск через Docker Compose
