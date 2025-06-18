@@ -2,7 +2,7 @@
 
 Базовый менеджер задач с возможностью регистрации пользователя
 
-![authorization](https://gitlab.com/fekojo/todolist_project/-/blob/master/gif/auth.gif)
+![authorization](https://github.com/fekojo/todolist_project/blob/main/gif/auth.gif)
 
 ## Технологии  
 - **Backend**: PHP  
@@ -68,7 +68,7 @@ docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
 
 Удалить задачу: Нажмите на корзину
 
-![crud](https://gitlab.com/fekojo/todolist_project/-/blob/master/gif/crud.gif)
+![crud](https://github.com/fekojo/todolist_project/blob/main/gif/crud.gif)
 
 
 ## Остановка контейнеров(если запуск был через docker compose)
