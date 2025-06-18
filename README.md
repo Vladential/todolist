@@ -12,7 +12,7 @@
 
 ## Установка и запуск  
 
-### 1. Клонирование репозитория  
+### Клонирование репозитория  
 ```bash
 git clone https://github.com/fekojo/todolist.git /srv/todolist_project/
 ```
