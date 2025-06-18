@@ -19,8 +19,7 @@ git clone https://github.com/fekojo/todolist.git /srv/todolist_project/
 
 ### Ручной запуск через Docker
 
-сборка образов
-
+Cборка образов
 ```bash
 docker build -t todolist_project-postgresql /srv/todolist_project/postgresql/docker-entrypoint-initdb.d
 docker build -t todolist_project-nginx:latest /srv/todolist_project/nginx
@@ -62,7 +61,6 @@ docker run --name todolist-pgsql \
 
 ### Запуск через Docker Compose
 Запуск готового docker-compose файла осуществляется по команде
-
 ```bash
 docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
 ```
