@@ -1,1 +1,77 @@
-# todolist
+# ToDoList
+
+Базовый менеджер задач с возможностью регистрации пользователя
+
+![authorization](https://gitlab.com/fekojo/todolist_project/-/blob/master/gif/auth.gif)
+
+## Технологии  
+- **Backend**: PHP  
+- **Frontend**: HTML/CSS/JS  
+- **База данных**: PostgreSQL
+- **Деплой**: Docker, Docker Compose
+
+## Установка и запуск  
+
+### 1. Клонирование репозитория  
+```bash
+git clone https://github.com/fekojo/todolist.git /srv/todolist_project/
+```
+
+### Ручной запуск через Docker
+
+сборка образов
+
+```bash
+docker build -t todolist_project-postgresql /srv/todolist_project/postgresql/docker-entrypoint-initdb.d
+docker build -t todolist_project-nginx:latest /srv/todolist_project/nginx/dockerfile
+docker build -t todolist_project-php /srv/todolist_project/php
+```
+Создание сети
+```bash
+docker network create todolist_project
+```
+
+Контейнер PHP
+```bash
+docker run --name todolist-php --network=todolist_project -v /srv/todolist_project:/var/www/todolist -e TZ=Europe/Moscow -d todolist_project-php:latest 
+```
+
+Контейнер nginx
+```bash
+docker run --name todolist-nginx -p 80:80 --network=todolist_project -v /srv/todolist_project:/var/www/todolist -e TZ=Europe/Moscow -d todolist_project-nginx:latest 
+```
+
+Контейнер PostgreSQL
+```bash
+docker run --name todolist-pgsql --network=todolist_project -v ./postgres:/var/lib/postgresql -e POSTGRES_PASSWORD=uta2YBy9 -e TZ=Europe/Moscow -e PGTZ=Europe/Moscow -d todolist_project-postgresql:latest 
+```
+
+### Запуск через bash скрипт
+```bash
+
+```
+
+### Запуск через Docker Compose
+Запуск готового docker-compose файла осуществляется по команде
+
+```bash
+docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
+```
+
+
+## Как пользоваться
+Добавить задачу: Введите текст и нажмите "Добавить"
+
+Отметить выполненной: Кликните на флажок слева от задачи
+
+Редактировать задача: Нажмите на карандаш
+
+Удалить задачу: Нажмите на корзину
+
+![crud](https://gitlab.com/fekojo/todolist_project/-/blob/master/gif/crud.gif)
+
+
+## Остановка контейнеров(если запуск был через docker compose)
+```bash
+docker compose -f /srv/todolist_project/docker-compose-todolist.yml down
+```

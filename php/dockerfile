@@ -1,0 +1,12 @@
+FROM php:8.3-fpm
+WORKDIR /var/www/html
+ENV TZ=Europe/Moscow
+
+RUN apt-get update
+RUN apt-get install -y libpq-dev
+RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_pgsql
+RUN docker-php-ext-enable pdo_mysql
+RUN docker-php-ext-enable pdo_pgsql
+
+CMD "php-fpm"
