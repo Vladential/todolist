@@ -23,7 +23,7 @@ git clone https://github.com/fekojo/todolist.git /srv/todolist_project/
 
 ```bash
 docker build -t todolist_project-postgresql /srv/todolist_project/postgresql/docker-entrypoint-initdb.d
-docker build -t todolist_project-nginx:latest /srv/todolist_project/nginx/dockerfile
+docker build -t todolist_project-nginx:latest /srv/todolist_project/nginx
 docker build -t todolist_project-php /srv/todolist_project/php
 ```
 Создание сети
@@ -33,22 +33,31 @@ docker network create todolist_project
 
 Контейнер PHP
 ```bash
-docker run --name todolist-php --network=todolist_project -v /srv/todolist_project:/var/www/todolist -e TZ=Europe/Moscow -d todolist_project-php:latest 
+docker run --name todolist-php \
+--network=todolist_project \
+-v /srv/todolist_project:/var/www/todolist \
+-e TZ=Europe/Moscow -d todolist_project-php:latest
 ```
 
 Контейнер nginx
 ```bash
-docker run --name todolist-nginx -p 80:80 --network=todolist_project -v /srv/todolist_project:/var/www/todolist -e TZ=Europe/Moscow -d todolist_project-nginx:latest 
+docker run --name todolist-nginx \
+--network=todolist_project \
+-p 80:80 \
+-v /srv/todolist_project:/var/www/todolist \
+-e TZ=Europe/Moscow \
+-d todolist_project-nginx:latest 
 ```
 
 Контейнер PostgreSQL
 ```bash
-docker run --name todolist-pgsql --network=todolist_project -v ./postgres:/var/lib/postgresql -e POSTGRES_PASSWORD=uta2YBy9 -e TZ=Europe/Moscow -e PGTZ=Europe/Moscow -d todolist_project-postgresql:latest 
-```
-
-### Запуск через bash скрипт
-```bash
-
+docker run --name todolist-pgsql \
+--network=todolist_project \
+-v /srv/todolist_project/postgres:/var/lib/postgresql \
+-e POSTGRES_PASSWORD=uta2YBy9 \
+-e TZ=Europe/Moscow \
+-e PGTZ=Europe/Moscow \
+-d todolist_project-postgresql:latest 
 ```
 
 ### Запуск через Docker Compose
