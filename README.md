@@ -64,7 +64,10 @@ docker run --name todolist-pgsql \
 ```bash
 docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
 ```
-
+Остановка контейнеров
+```bash
+docker compose -f /srv/todolist_project/docker-compose-todolist.yml down
+```
 
 ## Как пользоваться
 Добавить задачу: Введите текст и нажмите "Добавить"
@@ -76,9 +79,3 @@ docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
 Удалить задачу: Нажмите на корзину
 
 ![crud](https://github.com/fekojo/todolist_project/blob/main/gif/crud.gif)
-
-
-## Остановка контейнеров(если запуск был через docker compose)
-```bash
-docker compose -f /srv/todolist_project/docker-compose-todolist.yml down
-```
