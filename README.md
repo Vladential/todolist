@@ -61,7 +61,10 @@ docker run --name todolist-pgsql \
 ```
 
 ### Запуск через Docker Compose  
-**обязательно укажите пароль к базе данных в строке POSTGRES_PASSWORD**  
+**Перед запуском обязательно укажите пароль к базе данных в строке POSTGRES_PASSWORD через команду**
+```bash
+nano /srv/todolist_project/docker-compose-todolist.yml
+```
 Запуск готового docker-compose файла осуществляется по команде
 ```bash
 docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
