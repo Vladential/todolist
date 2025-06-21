@@ -48,7 +48,7 @@ docker run --name todolist-nginx \
 -d todolist_project-nginx:latest 
 ```
 
-Контейнер PostgreSQL
+Контейнер PostgreSQL  
 **обязательно укажите пароль к базе данных в строке POSTGRES_PASSWORD**
 ```bash
 docker run --name todolist-pgsql \
@@ -60,8 +60,8 @@ docker run --name todolist-pgsql \
 -d todolist_project-postgresql:latest 
 ```
 
-### Запуск через Docker Compose
-**обязательно укажите пароль к базе данных в строке POSTGRES_PASSWORD**
+### Запуск через Docker Compose  
+**обязательно укажите пароль к базе данных в строке POSTGRES_PASSWORD**  
 Запуск готового docker-compose файла осуществляется по команде
 ```bash
 docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
