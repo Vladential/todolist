@@ -24,7 +24,7 @@ services:
     volumes:
       - './postgres:/var/lib/postgresql'
     environment:
-      - 'POSTGRES_PASSWORD=uta2YBy9'
+      - 'POSTGRES_PASSWORD='
       - TZ=Europe/Moscow
       - PGTZ=Europe/Moscow
 networks:
