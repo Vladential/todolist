@@ -1,4 +1,4 @@
-# ToDoList
+# ToDo List
 
 Базовый менеджер задач с возможностью регистрации пользователя
 
@@ -12,15 +12,14 @@
 
 ## Установка и запуск  
 
-### 1. Клонирование репозитория  
+### Клонирование репозитория  
 ```bash
 git clone https://github.com/fekojo/todolist.git /srv/todolist_project/
 ```
 
 ### Ручной запуск через Docker
 
-сборка образов
-
+Cборка образов
 ```bash
 docker build -t todolist_project-postgresql /srv/todolist_project/postgresql/docker-entrypoint-initdb.d
 docker build -t todolist_project-nginx:latest /srv/todolist_project/nginx
@@ -64,11 +63,13 @@ docker run --name todolist-pgsql \
 ### Запуск через Docker Compose
 **обязательно укажите пароль к базе данных в строке POSTGRES_PASSWORD**
 Запуск готового docker-compose файла осуществляется по команде
-
 ```bash
 docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
 ```
-
+Остановка контейнеров
+```bash
+docker compose -f /srv/todolist_project/docker-compose-todolist.yml down
+```
 
 ## Как пользоваться
 Добавить задачу: Введите текст и нажмите "Добавить"
@@ -80,9 +81,3 @@ docker compose -f /srv/todolist_project/docker-compose-todolist.yml up -d
 Удалить задачу: Нажмите на корзину
 
 ![crud](https://github.com/fekojo/todolist_project/blob/main/gif/crud.gif)
-
-
-## Остановка контейнеров(если запуск был через docker compose)
-```bash
-docker compose -f /srv/todolist_project/docker-compose-todolist.yml down
-```
