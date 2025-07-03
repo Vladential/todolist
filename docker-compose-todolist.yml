@@ -14,7 +14,7 @@ services:
       - 80:80
     volumes:
       - '/srv/todolist_project:/var/www/todolist'
-      - '${CI_PROJECT_DIR}/nginx/conf.d:/etc/nginx/conf.d'
+      - '/srv/todolist_project/nginx/conf.d:/etc/nginx/conf.d'
     environment:
       - TZ=Europe/Moscow
 
